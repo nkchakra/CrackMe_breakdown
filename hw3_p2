@@ -1,0 +1,28 @@
+PART 1:
+In order to make any serial work with any name;
+replace command at 00401241
+	- CMP EAX,EBX
+with new command
+	- CMP EAX, EAX
+(line 158 in file 'pt1_binary')
+
+This will bypass the check for serial number versus transformed name by always checking EAX against EAX, and so always passing the check
+
+
+
+PART 2:
+How to obtain correct serial for any name:
+	- open CrackMe in OllyDbg
+	- create breakpoint at location 00401243
+	- Run CrackMe, enter in name
+	- go to EAX register, obtain value in that register
+	- restart CrackMe and use that value instead of the desired name
+	- the value in the EBX register is the serial value for that name
+
+Nikhil - 17907
+
+shifu - 17715
+
+yujie - 17866
+
+yiming - 17793
